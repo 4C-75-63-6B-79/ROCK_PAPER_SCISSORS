@@ -55,21 +55,30 @@ function tiePrevent(playerChoice) {
     }
 }
 
-function game() {
-    var computerWinCount = 0, playerWinCount = 0;
-    var playerChoice, computerChoice, result;
-    for(var i = 0; i<5; i++) {
-        playerChoice = prompt('Enter your choice');
-        playerChoice = playerChoice.toLowerCase();
-        computerChoice = tiePrevent(playerChoice);
-        result = playRound(playerChoice, computerChoice)
-        console.log(result);
-        if (result.charAt(5) == 'w') {
-            playerWinCount += 1;
-        } else {
-            computerWinCount += 1;
-        }
-    }
+function updateScore(playerWinCount, computerWinCount) {
+    const playerScore = document.querySelector('div.playerScore');
+    const computerScore = document.querySelector('div.computerScore');
+    playerScore.textContent = playerWinCount + Number(playerScore.textContent);
+    computerScore.textContent = computerWinCount + Number(computerScore.textContent);
 }
 
-game();
+function game(playerChoice) {
+    let playerWinCount = 0, computerWinCount = 0;
+    var computerChoice = tiePrevent(playerChoice);
+    var result = playRound(playerChoice, computerChoice)
+    console.log(result);
+    if (result.charAt(5) == 'w') {
+        playerWinCount += 1;
+    } else {
+        computerWinCount += 1;
+    }
+    updateScore(playerWinCount, computerWinCount);
+}
+
+
+
+const inputButtons = Array.from(document.querySelectorAll('input'));
+inputButtons.forEach(button => button.addEventListener('click', function(){
+    console.log(button.value);
+    game(button.value);
+}));
