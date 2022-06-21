@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock paper scissor</title>
+        <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
 
@@ -12,18 +13,27 @@
             <p>Two player are required to play this game of Rock Paper Scissor.
                 Both player are required to choose one from the three choices of rock, paper and scissor.
                 Paper beats rock, scissor beats paper and rock beats scissor. In this game you are playing against computer.
+                First one to reach score of 5 wins.
             </p>
         </div>
+        <div class="choice">Choose your choice</div>
         <div class="playerChoiceContainer">
             <input type="button" value="rock">
             <input type="button" value="paper">
             <input type="button" value="scissors">
         </div>
-        <div class="roundResult">Result</div>
+        <div class="roundResult">...</div>
         <div class="scoreContainer">
-            <div class="playerScore">0</div>
-            <div class="computerScore">0</div>
+            <div class="playerScoreContainer">
+                <div>Player</div>
+                <div class="playerScore">0</div>
+            </div>
+            <div class="computerScoreContainer">
+                <div>Computer</div>
+                <div class="computerScore">0</div>
+            </div>
         </div>
-        <div class="finalResult">FinalREsult</div>
+        <div class="finalResult"></div>
+        <div class="playAgain"></div>
     </body>
 </html>
